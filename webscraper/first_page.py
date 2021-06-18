@@ -20,7 +20,7 @@ scrap.get_links(1)
 
 df_articles = pd.DataFrame(columns=['title','date','text','url','author'])
 
-@repeat(every().day.at('12:00'),scrap,df_articles)
+@repeat(every(30).seconds,scrap,df_articles)
 def scraped_page_to_postgres(scrap,df_articles):
     for link in tqdm(scrap.links):
         url = scrap.base_url + link

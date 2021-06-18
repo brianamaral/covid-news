@@ -15,5 +15,7 @@ services:
             - "./scripts/creata_table.sql:/docker-entrypoint-initdb.d/create_table.sql"
         
     scraper:
-        build: ../webscraper/docker_file
+        build: ../webscraper
+        depends_on: 
+            - db
         

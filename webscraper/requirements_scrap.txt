@@ -5,3 +5,4 @@ pandas
 tqdm
 schedule
 psycopg2-binary
+lxml
