@@ -1,0 +1,7 @@
+requests
+bs4
+sqlalchemy
+pandas
+tqdm
+schedule
+psycopg2-binary
