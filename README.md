@@ -57,7 +57,7 @@ sudo apt get docker-compose
   - POSTGRES_PASSWORD=
   - POSTGRES_DB=
   ```
-3. Change the variables in the first_page.py and all_pages.py
+3. Change the variables in the webscraper/first_page.py and api/main.py
   ```python
   POSTGRES_USER = ''
   POSTGRES_PASSWORD = ''
