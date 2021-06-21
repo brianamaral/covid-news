@@ -69,6 +69,10 @@ If you changed the variables above correctly, then you are good to go, just go t
 ```sh
 docker-compose up
 ```
+### API Endpoints
+* /all_articles: return all articles on the dabatase
+* /last_article: return the last articles on the database by the date
+
 
 <!-- CONTRIBUTING -->
 ## Contributing
