@@ -23,6 +23,6 @@ def all_articles():
 
 @app.route('/last_article')
 def last_articles():
-    data = pd.read_sql('select * from articles order by "date" desc limit 1')
+    data = pd.read_sql('select * from articles order by "date" desc limit 1',connection)
     result = data.to_json(orient="records")
     return result
