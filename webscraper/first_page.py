@@ -5,6 +5,8 @@ from tqdm import tqdm
 from schedule import every, repeat, run_pending
 import time
 
+time.sleep(15)
+
 #change for your POSTGRES credentials
 POSTGRES_USER = ''
 POSTGRES_PASSWORD = ''

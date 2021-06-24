@@ -4,4 +4,4 @@ title varchar
 ,"text" text
 ,"url" varchar 
 ,author varchar
-);
+)
