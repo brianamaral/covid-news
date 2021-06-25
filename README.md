@@ -32,7 +32,7 @@ This project consistis in a web scraper that collects daily news about the COVID
 * Docker
 
 ## Project Architecture
-![plot](imagesiagram.png)
+![plot](diagram.png)
 
 ## Getting Started
 
