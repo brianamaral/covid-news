@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+    db:
+        image: postgres
+        container_name: "postgres_db"
+        environment: 
+            - POSTGRES_USER=root
+            - POSTGRES_PASSWORD=toor
+            - POSTGRES_DB=test_db
+        ports: 
+            - "5432:5432"
+        volumes: 
+            - "./db:/var/lib/postgresql/data"
+            - "./scripts:/docker-entrypoint-initdb.d/"
+
+#
+#    scraper:
+#        build: ../webscraper
+#        depends_on:
+#          db:
+#            condition: service_healthy
+#        environment:
+#            - POSTGRES_USER=root
+#            - POSTGRES_PASSWORD=toor
+#            - POSTGRES_DATABASE=postgres
+#            - POSTGRES_ADDRESS=localhost
+#
+#    api:
+#        build: ../api
+#        environment:
+#            - FLASK_APP=main.py
+#        ports:
+#            - "5000:5000"
+#        depends_on:
+#          db:
+#            condition: service_healthy
+#
