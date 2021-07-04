@@ -2,7 +2,7 @@ from flask import Flask
 from sqlalchemy import create_engine
 import pandas as pd
 import time
-time.sleep(10)
+
 
 app = Flask(__name__)
 
