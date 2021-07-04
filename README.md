@@ -56,13 +56,7 @@ sudo apt get docker-compose
   - POSTGRES_USER=
   - POSTGRES_PASSWORD=
   - POSTGRES_DB=
-  ```
-3. Change the variables in the webscraper/first_page.py and api/main.py
-  ```python
-  POSTGRES_USER = ''
-  POSTGRES_PASSWORD = ''
-  POSTGRES_ADDRES = '' 
-  POSTGRES_DATABASE = '' 
+  - POSTGRES_ADDRES=
   ```
 ## Usage
 If you changed the variables above correctly, then you are good to go, just go to the docker folder and then run:

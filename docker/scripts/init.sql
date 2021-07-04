@@ -1,4 +1,4 @@
-create table public.articles with encoding 'LATIN1'(
+create table public.articles(
 title varchar
 ,"date" date
 ,"text" text
