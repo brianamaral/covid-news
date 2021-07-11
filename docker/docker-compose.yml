@@ -20,6 +20,7 @@ services:
             retries: 5
     scraper:
         build: ../webscraper
+
         depends_on:
           db:
             condition: service_healthy
@@ -29,8 +30,10 @@ services:
             - POSTGRES_DATABASE=postgres
             - POSTGRES_ADDRESS=
 
+
     api:
         build: ../api
+
         environment:
             - FLASK_APP=main.py
             - POSTGRES_USER=root
@@ -42,3 +45,4 @@ services:
         depends_on:
           db:
             condition: service_healthy
+
