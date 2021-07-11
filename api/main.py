@@ -1,31 +1,18 @@
 from flask import Flask
-from sqlalchemy import create_engine
-import pandas as pd
-import time
-import os
-
+from api_methods import DbHandler
 
 app = Flask(__name__)
 
-engine = create_engine(
-    "postgresql+psycopg2://{}:{}@{}/{}".format(
-        os.environ.get("POSTGRES_USER"),
-        os.environ.get("POSTGRES_PASSWORD"),
-        os.environ.get("POSTGRES_ADDRESS"),
-        os.environ.get("POSTGRES_DATABASE"),
-    )
-)
-
-connection = engine.connect()
+handler = DbHandler()
 
 @app.route('/all_articles')
 def all_articles():
-    data = pd.read_sql('select * from articles',connection)
-    result = data.to_json(orient="records")
-    return result
-
+    return handler.sql_to_response('select * from articles')
+'''
 @app.route('/last_article')
 def last_articles():
     data = pd.read_sql('select * from articles order by date desc limit 1',connection)
-    result = data.to_json(orient="records")
-    return result
+    json_string = data.to_json(orient="records",force_ascii=False)
+    response = Response(json_string,content_type="application/json; charset=utf-8" )
+    return response
+'''

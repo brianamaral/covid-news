@@ -7,8 +7,12 @@ class Scraper:
     def __init__(self):
         self.base_url = "https://www.bbc.com/"
         self.url = "https://www.bbc.com/portuguese/topics/clmq8rgyyvjt/page/"
+        
 
     def get_links(self, page):
+        """
+        returns an iterator with the links from the website page
+        """
         sleep(0.25)
 
         r = requests.get(self.url + str(page))
