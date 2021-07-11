@@ -7,7 +7,9 @@ class Scraper:
     def __init__(self):
         self.base_url = "https://www.bbc.com/"
         self.url = "https://www.bbc.com/portuguese/topics/clmq8rgyyvjt/page/"
-        
+        self.classes = {'page-links-class':'qa-heading-link lx-stream-post__header-link',
+                        'author-class':'bbc-1a3w4ok e1c9i7u11',
+                        'text-class':'bbc-bm53ic e1cc2ql70'}
 
     def get_links(self, page):
         """
@@ -19,7 +21,7 @@ class Scraper:
         soup = BeautifulSoup(r.text, "lxml")
 
         for element in soup.find_all(
-            "a", class_="qa-heading-link lx-stream-post__header-link"
+            "a", class_=self.classes['page-links-class']
         ):
             yield element["href"]
 
@@ -56,13 +58,13 @@ class Scraper:
 
     def _get_author(self, soup: BeautifulSoup) -> str:
         try:
-            return soup.find("li", class_="bbc-1a3w4ok e1c9i7u11").string
+            return soup.find("li", class_=self.classes['author-class']).string
         except AttributeError:
             return "Não informado"
 
     def _get_text(self, soup: BeautifulSoup) -> str:
         text = ""
-        for element in soup.find_all("p", class_="bbc-bm53ic e1cc2ql70"):
+        for element in soup.find_all("p", class_=self.classes['text-class']):
             text += str(element.string) + "\n"
         return text
 
